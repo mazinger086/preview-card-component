@@ -36,7 +36,6 @@ html {
 
   @media (min-width:768px) {
     .container {
-        /* margin: 152px 0; */
         max-width: 1440px;
     }
   }
@@ -47,7 +46,7 @@ html {
     flex-direction: column;    
   }
 
-  .hero-mobile {
+  /* .hero-mobile {
     display: block;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;    
@@ -55,54 +54,57 @@ html {
 
   .hero-desktop {
     display: none;
+  } */
+
+  .hero {
+    position: relative;
+    display: block;
+    height: 300px;     
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-image: url(../images/image-header-mobile.jpg); 
+    background-size: 100% 100%;    
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background-color:hsl(277deg 95% 50% / 95%);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
   }
 
   @media (min-width:768px){
     .card {
         flex-direction: row-reverse;
         width: 1000px;
+        height: 400px;
     }
-    .hero-mobile {
-        display: none;
-    }
-    .hero-desktop {
-        display: block;
+    .hero {
+        position: relative;
         width: 50%;
-    }
-  }
-
-  .card::after {
-    content: "";
-    background-color: hsl(277, 64%, 61%);
-    width: 100%;
-    height: 275px;
-    opacity: 0.4;
-    filter: contrast(4);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    position: absolute;
-  }
-
-  @media (min-width:768px){
-    .hero-desktop {
+        height: 100%;    
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        border-top-left-radius: 0px;
-    }
-    .card::after {
+        border-top-left-radius: unset;
+        background-image: url(../images/image-header-desktop.jpg);    
+      }
+    
+      .hero::after {
         content: "";
-        background-color: hsl(277, 64%, 61%);
-        width: 50%;
+        position: absolute;
+        width: 100%;
         height: 100%;
         opacity: 0.4;
-        filter: contrast(4);
-        border-bottom-right-radius: 10px;
         border-top-right-radius: 10px;
-        border-top-left-radius: 0px;
-        position: absolute;
+        border-bottom-right-radius: 10px;
+        background-color:hsl(277deg 95% 50% / 95%);
       }
   }
- 
+
 
   .card-textbox {
     display: flex;
@@ -134,6 +136,7 @@ html {
 
   @media (min-width:768px) {
     .card-textbox {
+        width: 50%;
         justify-content: flex-start;
         align-items: flex-start;
         border-top-left-radius: 10px;
